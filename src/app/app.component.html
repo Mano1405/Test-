@@ -1,0 +1,23 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary ">
+  <div class="container-fluid">
+    <a routerLink="" class="navbar-brand">JWT Auth</a>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item" *ngIf="(userprofile?.sub ?? 0)>0">
+          <a class="nav-link active" aria-current="page" routerLink="movies/fav">Movies</a>
+        </li>
+      </ul>
+  </div>
+    <div class="d-flex">
+      <ul class="navbar-nav">
+        <li class="nav-item" *ngIf="(userprofile?.sub ?? 0)==0">
+          <a class="nav-link active" aria-current="page" routerLink="/auth/login">Login</a>
+        </li>
+        <li class="nav-item" *ngIf="(userprofile?.sub ?? 0)>0">
+          <a class="nav-link active" aria-current="page" href="#">{{userprofile?.email}}</a>
+      </ul>
+    </div>
+  </div>
+
+</nav>
+<router-outlet></router-outlet>
